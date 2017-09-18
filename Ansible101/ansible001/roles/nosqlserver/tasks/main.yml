@@ -1,0 +1,10 @@
+---
+# tasks file for nosqlserver
+- name: install Redis server
+  apt: name=redis-server state=latest update_cache=yes
+
+- name: checking whether Redis is running or not
+  service: name=redis-server state=started
+
+- name: enable redis-server to survive reboot
+  service: name=redis-server enabled=yes
